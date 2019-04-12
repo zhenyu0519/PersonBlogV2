@@ -1,0 +1,37 @@
+{
+  "name": "person_blog_v2",
+  "version": "1.0.0",
+  "description": "My personal Blog V2",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development ./MBV2/frontend/src/index.js --output ./MBV2/frontend/static/frontend/main.js",
+    "build": "webpack --mode production ./MBV2/frontend/src/index.js --output ./MBV2/frontend/static/frontend/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhenyu0519/PersonBlogV2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhenyu0519/PersonBlogV2/issues"
+  },
+  "homepage": "https://github.com/zhenyu0519/PersonBlogV2#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
