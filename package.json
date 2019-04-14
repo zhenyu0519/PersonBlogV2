@@ -4,7 +4,8 @@
   "description": "My personal Blog V2",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development ./MBV2/frontend/src/index.js --output ./MBV2/frontend/static/frontend/main.js",
+    "start": "webpack-dev-server --open --mode development ./MBV2/frontend/src/index.js --output ./MBV2/frontend/static/frontend/main.js",
+    "dev": "webpack --open --mode development --watch ./MBV2/frontend/src/index.js --output ./MBV2/frontend/static/frontend/main.js",
     "build": "webpack --mode production ./MBV2/frontend/src/index.js --output ./MBV2/frontend/static/frontend/main.js"
   },
   "repository": {
@@ -25,7 +26,8 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.3",
