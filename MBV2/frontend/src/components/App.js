@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import Header from './layout/Header'
+import PageBase from './layout/PageBase';
 
 class App extends Component {
     render() {
-        return <Header />
+        return <PageBase />
     }
 }
 

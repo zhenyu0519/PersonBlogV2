@@ -31,9 +31,9 @@ function Header(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            Newsss
+            Welcome To My Blog
           </Typography>
-          <Button color="inherit">Loginxxxs</Button>
+          <Button color="inherit">Fuck</Button>
         </Toolbar>
       </AppBar>
     </div>
