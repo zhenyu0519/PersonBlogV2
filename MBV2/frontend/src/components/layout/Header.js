@@ -10,7 +10,14 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 const styles = {
   root: {
-    flexGrow: 1,
+    flexGrow: 6,
+    position: 'fixed',
+    left: 0,
+    top: 0,
+    width: '100%',
+    backgroundColor: 'red',
+    color: 'white',
+    textAlign: 'center'
   },
   grow: {
     flexGrow: 1,
