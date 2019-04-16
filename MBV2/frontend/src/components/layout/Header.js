@@ -7,15 +7,15 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 const styles = {
   root: {
     flexGrow: 6,
-    position: 'fixed',
     left: 0,
     top: 0,
     width: '100%',
-    backgroundColor: 'red',
     color: 'white',
     textAlign: 'center'
   },
@@ -26,6 +26,10 @@ const styles = {
     marginLeft: -12,
     marginRight: 20,
   },
+  img: {
+    height: '200px',
+    objectFit: 'cover'
+  }
 };
 
 function Header(props) {

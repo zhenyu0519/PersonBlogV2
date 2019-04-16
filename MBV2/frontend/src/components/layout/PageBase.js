@@ -1,17 +1,26 @@
 import React from 'react';
 import Header from './Header';
-import Body from './Body';
+import Main from './Main';
 import Footer from './Footer';
+import Grid from '@material-ui/core/Grid';
+import { CssBaseline } from '@material-ui/core';
 
 
 function PageBase() {
   return (
-    <div>
-      <Header />
-      <Body />
-      <Footer />
-    </div>
+    <React.Fragment>
+      <CssBaseline />
+      <header>
+        <Header />
+      </header>
+      <main>
+        <Main />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </React.Fragment>
   )
 }
 
-export default PageBase
+export default PageBase;
