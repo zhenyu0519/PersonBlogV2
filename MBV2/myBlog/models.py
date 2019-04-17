@@ -3,7 +3,7 @@ from django.db import models
 
 # Category
 class Category(models.Model):
-    category_name = models.CharField(max_length=50)
+    category_name = models.CharField(max_length=100)
     index_order = models.IntegerField(default=999)
 
     def __unicode__(self):
@@ -31,7 +31,7 @@ class Article(models.Model):
     author = models.CharField(max_length=50)
     published_date = models.DateTimeField(auto_now_add=True)
     visit_time = models.PositiveIntegerField(default=0)
-    article_category = models.ForeignKey("Category", on_delete=models.PROTECT)
+    article_category = models.ForeignKey("Category", on_delete=models.CASCADE)
     article_image = models.ImageField(upload_to='%Y%m%d', max_length=3000)
     objects = ArticleManager()
 
