@@ -10,8 +10,8 @@ class Category(models.Model):
         return self.category_name
 
 
-# Article Manager
-class ArticleManager(models.Manager):
+# Post Manager
+class PostManager(models.Manager):
     def distinct_date(self):
         distinct_date_list = []
         date_list = self.values('published_date')
@@ -23,17 +23,17 @@ class ArticleManager(models.Manager):
         return distinct_date_list
 
 
-# Article
-class Article(models.Model):
+# Post
+class Post(models.Model):
     title = models.CharField(max_length=100, unique=True)
     description = models.CharField(max_length=250)
     content = models.TextField(max_length=60000)
     author = models.CharField(max_length=50)
     published_date = models.DateTimeField(auto_now_add=True)
     visit_time = models.PositiveIntegerField(default=0)
-    article_category = models.ForeignKey("Category", on_delete=models.CASCADE)
-    article_image = models.ImageField(upload_to='%Y%m%d', max_length=3000)
-    objects = ArticleManager()
+    post_category = models.ForeignKey("Category", on_delete=models.CASCADE)
+    post_image = models.ImageField(upload_to='%Y%m%d', max_length=3000)
+    objects = PostManager()
 
     class Meta:
         ordering = ['-published_date']

@@ -16,6 +16,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { connect } from 'react-redux';
+import { getPosts } from '../../actions/postsAction'
+
 
 const styles = theme => ({
   card: {
@@ -51,6 +54,10 @@ class LeftColumn extends React.Component {
     this.setState(state => ({ expanded: !state.expanded }));
   };
 
+  componentDidMount(){
+    this.props.getPosts();
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -72,7 +79,7 @@ class LeftColumn extends React.Component {
         />
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/paella.jpg"
+          image="http://lorempixel.com/output/cats-q-c-640-480-1.jpg"
           title="Paella dish"
         />
         <CardContent>
@@ -133,6 +140,11 @@ class LeftColumn extends React.Component {
 
 LeftColumn.propTypes = {
   classes: PropTypes.object.isRequired,
+  posts: PropTypes.array.isRequired
 };
 
-export default withStyles(styles)(LeftColumn);
+const mapStateToProps = state => ({
+  posts: state.postsReducers.posts
+})
+
+export default connect(mapStateToProps, { getPosts })(withStyles(styles)(LeftColumn));

@@ -72,7 +72,7 @@ class RightColumn extends React.Component {
                 />
                 <CardMedia
                     className={classes.media}
-                    image="/static/images/cards/paella.jpg"
+                    image="http://lorempixel.com/output/cats-q-c-640-480-2.jpg"
                     title="Paella dish"
                 />
                 <CardContent>
