@@ -12,9 +12,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '@material-ui/icons/Waves';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import LibraryBookIcon from '@material-ui/icons/LibraryBooks';
 import Home from '@material-ui/icons/Home';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
@@ -131,6 +132,12 @@ class Navbar extends React.Component {
           </IconButton>
           <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}><p>Home</p></Link>
         </MenuItem>
+        <MenuItem>
+          <IconButton color="inherit">
+            <LibraryBookIcon />
+          </IconButton>
+          <Link to="/post" style={{ textDecoration: 'none', color: 'inherit' }}><p>Post</p></Link>
+        </MenuItem>
         <MenuItem >
           <IconButton color="inherit">
             <AccountCircle />
@@ -167,6 +174,11 @@ class Navbar extends React.Component {
               <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <IconButton color="inherit">
                   <Home />
+                </IconButton>
+              </Link>
+              <Link to="/post" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <IconButton color="inherit">
+                  <LibraryBookIcon />
                 </IconButton>
               </Link>
               <Link to="/about" style={{ textDecoration: 'none', color: 'inherit' }}>

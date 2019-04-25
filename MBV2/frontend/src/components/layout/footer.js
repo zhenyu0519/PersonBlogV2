@@ -13,10 +13,11 @@ const useStyles = makeStyles({
     bottom: 0,
     width: '100%',
     backgroundColor: '#3f51b5',
-    textAlign: 'center'
+    textAlign: 'center',
+    position: 'fixed'
   },
   text: {
-    color: 'white',
+    color: '#ffffff',
   }
 });
 
@@ -28,10 +29,10 @@ function Footer() {
     <footer className={classes.footer}>
       <Typography variant="h6" align="center" gutterBottom className={classes.text}>
         Footer
-            </Typography>
+      </Typography>
       <Typography variant="subtitle1" align="center" color="textSecondary" component="p" className={classes.text}>
         Something here to give the footer a purpose!
-            </Typography>
+      </Typography>
     </footer>
 
   );
