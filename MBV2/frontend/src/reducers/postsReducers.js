@@ -1,4 +1,4 @@
-import { GET_POSTS } from '../actions/actionTypes.js';
+import { GET_POSTS_REQ, GET_POSTS_OK, GET_POSTS_ERR } from '../actions/actionTypes.js';
 
 const initialState = {
     posts: []
@@ -6,10 +6,20 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case GET_POSTS:
+        case GET_POSTS_REQ:
             return {
                 ...state,
-                posts: action.payload
+                posts: []
+            }
+        case GET_POSTS_OK:
+            return {
+                ...state,
+                posts: action.posts
+            }
+        case GET_POSTS_ERR:
+            return {
+                ...state,
+                posts: action.error
             }
         default:
             return state;

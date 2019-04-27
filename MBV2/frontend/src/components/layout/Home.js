@@ -27,7 +27,8 @@ const styles = theme => ({
 
 class Home extends React.Component {
   state = {
-    posts: []
+    posts: [],
+    path: ''
   }
 
   componentDidMount() {
@@ -35,17 +36,22 @@ class Home extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!_.isEqual(nextProps.posts, this.props.posts)) {
-      this.setState({
-        posts: nextProps.posts
-      })
+    try {
+      if (!_.isEqual(nextProps.posts, this.props.posts)) {
+        this.setState({
+          posts: nextProps.posts
+        })
+      }
+    } catch (e) {
+      console.error(e)
     }
   }
 
-  componentDidUpdate(preProps){
-    console.log('preprops is ', preProps)
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.pathParam !== this.props.match.params.pathParam) {
+      this.props.getPosts();
+    }
   }
-
   render() {
     const { classes } = this.props;
     return (
@@ -80,5 +86,6 @@ Home.propTypes = {
 const mapStateToProps = state => ({
   posts: state.postsReducers.posts
 })
+
 
 export default connect(mapStateToProps, { getPosts })(withStyles(styles)(Home))
