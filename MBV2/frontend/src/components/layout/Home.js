@@ -7,7 +7,7 @@ import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
 import Slider from '../utils/Slider';
 import { connect } from 'react-redux';
-import { getPosts } from '../../actions/postsAction'
+import { getLatestPosts } from '../../actions/getLatestPostsAction';
 
 //import lodash https://lodash.com/docs/4.17.10
 const _ = require('lodash');
@@ -28,11 +28,10 @@ const styles = theme => ({
 class Home extends React.Component {
   state = {
     posts: [],
-    path: ''
   }
 
   componentDidMount() {
-    this.props.getPosts();
+    this.props.getLatestPosts();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -49,7 +48,7 @@ class Home extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.pathParam !== this.props.match.params.pathParam) {
-      this.props.getPosts();
+      this.props.getLatestPosts();
     }
   }
   render() {
@@ -84,8 +83,8 @@ Home.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  posts: state.postsReducers.posts
+  posts: state.latestPostsReducers.posts
 })
 
 
-export default connect(mapStateToProps, { getPosts })(withStyles(styles)(Home))
+export default connect(mapStateToProps, { getLatestPosts })(withStyles(styles)(Home))
