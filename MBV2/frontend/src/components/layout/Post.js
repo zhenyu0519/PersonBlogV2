@@ -17,7 +17,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { connect } from 'react-redux';
-import { getLatestPosts } from '../../actions/getLatestPostsAction'
+import { getPost } from '../../actions/getPostAction'
 
 const styles = theme => ({
   card: {
@@ -52,7 +52,7 @@ class Post extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getLatestPosts();
+    this.props.getPost();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -136,4 +136,4 @@ const mapStateToProps = state => ({
   post: state.postsReducers.post
 })
 
-export default connect(mapStateToProps, { getLatestPosts })(withStyles(styles)(Post))
+export default connect(mapStateToProps, { getPost })(withStyles(styles)(Post))

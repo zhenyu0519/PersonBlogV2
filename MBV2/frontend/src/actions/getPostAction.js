@@ -25,9 +25,9 @@ export const getPostErr = (err) => {
 }
 
 //if action is ok dispatch api
-export const getPost = (params) => dispatch => {
+export const getPost = (id) => dispatch => {
   dispatch(getPostReq());
-  axios.get('api/post/'+param).then(res => {
+  axios.get(`api/posts/${id}`).then(res => {
     dispatch(getPostOk(res.data));
   }).catch(err => dispatch(getPostErr(err)))
 }

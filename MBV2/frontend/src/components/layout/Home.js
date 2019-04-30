@@ -8,6 +8,7 @@ import RightColumn from './RightColumn';
 import Slider from '../utils/Slider';
 import { connect } from 'react-redux';
 import { getLatestPosts } from '../../actions/getLatestPostsAction';
+import { getPost } from '../../actions/getPostAction'
 
 //import lodash https://lodash.com/docs/4.17.10
 const _ = require('lodash');
@@ -30,6 +31,10 @@ class Home extends React.Component {
     posts: [],
   }
 
+  getPostClick = (id) => {
+    this.props.getPost(id);
+  }
+
   componentDidMount() {
     this.props.getLatestPosts();
   }
@@ -41,16 +46,12 @@ class Home extends React.Component {
           posts: nextProps.posts
         })
       }
+
     } catch (e) {
       console.error(e)
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.pathParam !== this.props.match.params.pathParam) {
-      this.props.getLatestPosts();
-    }
-  }
   render() {
     const { classes } = this.props;
     return (
@@ -62,7 +63,7 @@ class Home extends React.Component {
             <Grid item xs={12} sm={12} md={8} lg={8} >
               {
                 this.state.posts.map(p => {
-                  return <LeftColumn post={p} key={p.id} />
+                  return <LeftColumn getPostClick={this.getPostClick} post={p} key={p.id} />
                 })
               }
             </Grid>
@@ -83,8 +84,9 @@ Home.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  posts: state.latestPostsReducers.posts
+  posts: state.latestPostsReducers.posts,
+  post: state.postReducers.post
 })
 
 
-export default connect(mapStateToProps, { getLatestPosts })(withStyles(styles)(Home))
+export default connect(mapStateToProps, { getLatestPosts, getPost })(withStyles(styles)(Home))

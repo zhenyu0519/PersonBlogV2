@@ -52,7 +52,7 @@ class LeftColumn extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, post } = this.props;
 
     return (
       <Card className={classes.card}>
@@ -67,21 +67,21 @@ class LeftColumn extends React.Component {
               <MoreVertIcon />
             </IconButton>
           }
-          title={this.props.post.title}
-          subheader={this.props.post.published_data}
+          title={post.title}
+          subheader={post.published_data}
         />
         <CardMedia
           className={classes.media}
-          image={this.props.post.post_image}
+          image={post.post_image}
           title={''}
         />
         <CardContent>
           <Typography component="p">
-            {this.props.post.description}
+            {post.description}
           </Typography>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
-          <IconButton aria-label="Add to favorites">
+          <IconButton aria-label="Add to favorites" onClick={() => this.props.getPostClick(this.props.post.id)}>
             <FavoriteIcon />
           </IconButton>
           <IconButton aria-label="Share">
@@ -100,23 +100,24 @@ class LeftColumn extends React.Component {
         </CardActions>
         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>{this.props.post.author}</Typography>
+            <Typography paragraph>{post.author}</Typography>
             <Typography paragraph>
-              {this.props.post.post_category}
+              {post.post_category}
             </Typography>
             <Typography paragraph>
-              {this.props.post.content}
+              {post.content}
             </Typography>
           </CardContent>
         </Collapse>
-      </Card>
+      </Card >
     );
   }
 }
 
 LeftColumn.propTypes = {
   classes: PropTypes.object.isRequired,
-  post: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired,
+  getPostClick: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(LeftColumn);
